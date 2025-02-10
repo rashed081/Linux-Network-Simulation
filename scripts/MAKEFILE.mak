@@ -7,7 +7,7 @@ setup:
 	sudo ip netns add ns2
 	sudo ip netns add router-ns
 
-bridge: setup
+bridge:
 	sudo ip link add br1 type bridge
 	sudo ip link set br1 up
 	sudo ip link add br2 type bridge
@@ -16,7 +16,7 @@ bridge: setup
     sysctl -w net.bridge.bridge-nf-call-ip6tables=0
     sysctl -w net.bridge.bridge-nf-call-arptables=0
 
-link: bridge
+link:
 	sudo ip link add veth1 type veth peer name br1-veth1
 	sudo ip link set veth1 netns ns1
 	sudo ip link set br1-veth1 master br1
@@ -41,7 +41,7 @@ link: bridge
 	sudo ip netns exec router-ns ip link set veth-r1 up
 	sudo ip netns exec router-ns ip link set veth-r2 up
 
-assign: link
+assign:
 	sudo ip netns exec ns1 ip addr add 10.0.1.2/24 dev veth1
 	sudo ip netns exec ns2 ip addr add 10.0.2.2/24 dev veth2
 	sudo ip netns exec router-ns ip addr add 10.0.1.1/24 dev veth-r1
@@ -49,7 +49,7 @@ assign: link
 	sudo ip addr add 10.0.1.254/24 dev br1
 	sudo ip addr add 10.0.2.254/24 dev br2
 
-route: assign
+route:
 	sudo ip netns exec ns1 ip route flush all
 	sudo ip netns exec ns1 ip route add 10.0.1.0/24 dev veth1
 	sudo ip netns exec ns1 ip route add default via 10.0.1.1
