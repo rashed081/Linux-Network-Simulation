@@ -77,7 +77,7 @@ route:
 	sudo ip netns exec $(ROUTER) ip route add 10.0.2.0/24 dev $(VETH_R2)
 	
 	sysctl -w net.ipv4.ip_forward=1
-    ip netns exec router-ns sysctl -w net.ipv4.ip_forward=1
+        ip netns exec router-ns sysctl -w net.ipv4.ip_forward=1
 
 clean:
 	sudo ip netns del $(NS1)
