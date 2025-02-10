@@ -165,7 +165,6 @@ main() {
     setup_veth_pairs || exit 1
     configure_ip_addresses || exit 1
     setup_routing || exit 1
-
     test_connectivity
 
     log_message "Network setup completed successfully"
