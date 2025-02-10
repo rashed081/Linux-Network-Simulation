@@ -258,13 +258,13 @@ ip netns exec ns2 ping -c 3 10.0.1.2
 
 	- Checks:
 
-	- Verify IP forwarding is enabled
-
-	- Check routing tables
-
-	- Ensure interfaces are up
-
-	- Verify bridge configuration
+		- Verify IP forwarding is enabled
+	
+		- Check routing tables
+	
+		- Ensure interfaces are up
+	
+		- Verify bridge configuration
 
   
 
@@ -274,11 +274,11 @@ ip netns exec ns2 ping -c 3 10.0.1.2
 
 	- Checks:
 
-	- Verify bridge is up
-
-	- Check connected interfaces
-
-	- Verify bridge-netfilter settings
+		- Verify bridge is up
+	
+		- Check connected interfaces
+	
+		- Verify bridge-netfilter settings
 
   
 
@@ -287,12 +287,12 @@ ip netns exec ns2 ping -c 3 10.0.1.2
 	- Problem: Traffic not forwarding
 
 	- Checks:
-
-	- Verify IP forwarding
-
-	- Check default routes
-
-	- Verify IPTables rules
+	
+		- Verify IP forwarding
+	
+		- Check default routes
+	
+		- Verify IPTables rules
 
 
 
